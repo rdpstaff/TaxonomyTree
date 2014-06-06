@@ -37,6 +37,10 @@ public class ConcretRoot<E extends Node> {
     public int getRootTaxid() {
         return root.getTaxon().getTaxid();
     }
+    
+    public TaxonHolder<E> getRootTaxonHodler(){
+        return root;
+    }
 
     public TaxonHolder<E> getChild(int txid) {
         return taxonMap.get(txid);

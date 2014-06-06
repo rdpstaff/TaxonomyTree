@@ -72,7 +72,7 @@ public class TaxonHolder<E extends Node> {
     }
 
     /**
-     * Convience method that returns the enclosed taxon
+     * Convenience method that returns the enclosed taxon
      * instead of the taxonholder for the given id
      *
      * @param idToFind
@@ -87,6 +87,17 @@ public class TaxonHolder<E extends Node> {
         return result.getTaxon();
     }
 
+    /*
+     * returns only the immediate child taxon with matching name
+     */
+    public TaxonHolder<E> getImediateChildTaxon(String name){
+        for (  TaxonHolder<E> child: children){
+            if (  ((Taxon)child.getTaxon()).getName().equals(name)){
+                return child;
+            }
+        }
+        return null;
+    }
     /**
      * Find a taxon with the given id in the sub tree
      * rooted at this node
@@ -103,7 +114,7 @@ public class TaxonHolder<E extends Node> {
         this.parent = parent;
     }
 
-    TaxonHolder<E> getParent() {
+    public TaxonHolder<E> getParent() {
         return parent;
     }
 

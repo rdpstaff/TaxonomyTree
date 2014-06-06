@@ -136,4 +136,16 @@
         <property location="${dist.jar}" name="dist.jar.resolved"/>
         <echo>java -jar "${dist.jar.resolved}"</echo>
     </target>
+
+    <target name="junit" depends="compile-test">
+     <junit printsummary="yes" haltonfailure="yes" showoutput="yes">
+        <classpath path="${javac.test.classpath}:${build.classes.dir}:${build.test.classes.dir}"/>
+
+        <formatter type="xml"/>
+
+        <batchtest fork="yes">
+            <fileset dir="${test.src.dir}" includes="**/*Test.java"/>
+        </batchtest>
+    </junit>
+</target>
 </project>

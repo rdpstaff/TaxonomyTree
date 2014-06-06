@@ -28,7 +28,7 @@ public class VisitInfo<E extends Node> {
     private TaxonHolder<E> holder;
     private VisitType visitType;
 
-    VisitInfo(TaxonHolder<E> holder, VisitType type) {
+    public VisitInfo(TaxonHolder<E> holder, VisitType type) {
         this.holder = holder;
         this.visitType = type;
     }
